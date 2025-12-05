@@ -1,62 +1,83 @@
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #d7e1ec, #f3f7fa);
-  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .game-container {
-  text-align: center;
-  background: white;
-  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.1);
-  width: 340px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.5s ease-in;
 }
 
-h1 {
-  margin-bottom: 25px;
-  color: #333;
-}
-
-.card {
-  background: #007bff;
-  color: white;
-  padding: 30px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
-
-.card:hover {
-  transform: scale(1.03);
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
 }
 
 button {
-  background: #007bff;
+  background: #fff;
   border: none;
-  color: white;
-  padding: 10px 15px;
+  color: #333;
+  padding: 10px 16px;
   border-radius: 10px;
+  margin: 8px;
   cursor: pointer;
-  font-size: 1rem;
-  margin: 5px;
+  transition: 0.3s;
+  font-weight: 600;
 }
 
 button:hover {
-  background: #0056b3;
+  background: #ffd369;
 }
 
-.stats {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #555;
+.hidden {
+  display: none;
+}
+
+#progress {
+  width: 100%;
+  background: rgba(255,255,255,0.3);
+  border-radius: 10px;
+  margin: 10px 0;
+  height: 10px;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 10px;
+  background: #ffd369;
+  border-radius: 10px;
+  transition: width 0.4s;
+}
+
+#timer {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+#options button {
+  display: block;
+  width: 100%;
+}
+
+.correct {
+  background: #28a745 !important;
+  color: white;
+}
+
+.wrong {
+  background: #dc3545 !important;
+  color: white;
 }

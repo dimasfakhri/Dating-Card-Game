@@ -1,48 +1,53 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dating Card Game - Multiplayer</title>
+  <title>Quiz Quest</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <div class="game-container">
-    <h1>Card Game Pertanyaan 🎴</h1>
-
-    <div class="settings">
-      <label>Kategori:
-        <select id="categorySelect">
-          <option value="fun">Fun</option>
-          <option value="deep">Deep</option>
-          <option value="random">Random</option>
-          <option value="truth">Truth or Dare</option>
-        </select>
-      </label>
-
-      <label>Jumlah Pemain:
-        <input type="number" id="playerCount" min="1" max="10" value="2">
-      </label>
-
-      <button id="startBtn">Mulai Game</button>
-    </div>
-
-    <div class="game" id="game" style="display:none;">
-      <h2 id="turnLabel">Giliran: Player 1</h2>
-      <div class="card" id="card">
-        <div id="question">Klik Next untuk mulai!</div>
+    <header>
+      <h1>🎯 Quiz Quest</h1>
+      <div id="progress">
+        <div id="progress-bar"></div>
       </div>
-      <div class="controls">
-        <button id="nextBtn">Next Question</button>
-        <button id="resetBtn">Reset</button>
+    </header>
+
+    <!-- Kategori -->
+    <div id="category-screen">
+      <h2>Select Category</h2>
+      <div class="categories">
+        <button onclick="startGame('general')">🌍 General</button>
+        <button onclick="startGame('science')">🔬 Science</button>
+        <button onclick="startGame('tech')">💻 Technology</button>
+        <button onclick="startGame('math')">🧮 Mathematics</button>
+        <button onclick="startGame('history')">🏛️ History</button>
+        <button onclick="startGame('social')">🗣️ Social</button>
       </div>
     </div>
 
-    <div class="stats">
-      <p>Pertanyaan dijawab: <span id="answeredCount">0</span></p>
+    <!-- Game -->
+    <div id="quiz-screen" class="hidden">
+      <div id="question-box">
+        <p id="question-text"></p>
+        <div id="options"></div>
+      </div>
+      <div id="timer">⏱️ <span id="time-left">10</span>s</div>
+      <button id="next-btn" class="hidden">Next</button>
+    </div>
+
+    <!-- Skor -->
+    <div id="result-screen" class="hidden">
+      <h2>🏆 Game Over</h2>
+      <p>Your Score: <span id="final-score"></span></p>
+      <button id="restart-btn">Play Again</button>
     </div>
   </div>
+
+  <audio id="correct-sound" src="audio\correct-sound.mp3"></audio>
+  <audio id="wrong-sound" src="audio\wrong-sound.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
